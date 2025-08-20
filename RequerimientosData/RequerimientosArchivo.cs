@@ -43,6 +43,12 @@ namespace RequerimientosData
             if (File.Exists(rutaArchivo))
             {
                 string json = File.ReadAllText(rutaArchivo);
+                
+                if (json == "")
+                {
+                    return new List<RequerimientoEntitie>();
+                }
+
                 return JsonConvert.DeserializeObject<List<RequerimientoEntitie>>(json);
             }
             else
