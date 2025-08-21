@@ -27,8 +27,11 @@ namespace RequerimientosData
 
             listado.Add(requerimiento);
 
-            string rutaArchivo = "C:\\Users\\Usuario\\Desktop\\ApiRestEntregarParaCorregir\\Requerimientos.json"; //C:\Users\Usuario\Desktop\ApiRestEntregarParaCorregir
-            
+            //string rutaArchivo = "C:\\Users\\Usuario\\Desktop\\ApiRestEntregarParaCorregir\\Requerimientos.json"; C:\Users\Usuario\Desktop\ApiRestEntregarParaCorregir
+            string directorioNicolas = "../RequerimientosData/Datos";
+            string rutaNicolas = Path.Combine(directorioNicolas, "misDatos.json");
+            string rutaArchivo = Path.GetFullPath(rutaNicolas);
+
             string json = JsonConvert.SerializeObject(listado, Formatting.Indented);
             
             File.WriteAllText(rutaArchivo, json);
@@ -38,7 +41,9 @@ namespace RequerimientosData
 
         public static List<RequerimientoEntitie> LeerDesdeArchivoJson()
         {
-            string rutaArchivo = "C:\\Users\\Usuario\\Desktop\\ApiRestEntregarParaCorregir\\Requerimientos.json";
+            string directorioNicolas = "../RequerimientosData/Datos";
+            string rutaNicolas = Path.Combine(directorioNicolas, "misDatos.json");
+            string rutaArchivo = Path.GetFullPath(rutaNicolas);
 
             if (File.Exists(rutaArchivo))
             {
