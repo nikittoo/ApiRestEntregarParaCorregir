@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace RequerimientosDto
 {
     public class RequerimientoDto
     {
+        [JsonIgnore]
         public int Id { get; set; }
         [Required(ErrorMessage = "El título es obligatorio.")]
         public string Titulo { get; set; }
